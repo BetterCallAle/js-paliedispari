@@ -2,21 +2,24 @@
 const input = extractElements("user-word")
 const submitBtn = extractElements("submit")
 const cancelBtn = extractElements("cancel")
-
+const outputContainer = extractElements("output-container")
 
 //on click (or enter) export input value and write an output
 submitBtn.addEventListener("click", function(){
-   output()
+   output(outputContainer)
 })
 
 input.addEventListener("keypress", function (e) {
     if (e.key === 'Enter') {
-      output()
+      output(outputContainer)
     }
 });
 
 //cancel button
-cancelBtn.addEventListener("click")
+cancelBtn.addEventListener("click", function() {
+    input.value = ""
+    
+})
 
 
 
@@ -61,7 +64,7 @@ function extractElements(elementName){
 }
 
 //output
-function output(){
+function output(elementWithTheInnerHTML){
     const userWord = input.value;
     console.log(userWord);
 
@@ -78,7 +81,7 @@ function output(){
     console.log(theWordAreEqual);
 
     //output
-    const outputContainer = extractElements("output-container")
+    
 
     let outputMessage = ""
 
@@ -88,7 +91,7 @@ function output(){
         outputMessage = `la parola ${userWord} che al contrario è ${userWordReversed}. Non è palindroma.`
     }
 
-    outputContainer.innerHTML = `<h2> ${outputMessage} <h2>`
+    elementWithTheInnerHTML.innerHTML = `<h2> ${outputMessage} <h2>`
 
     input.value = ""
 }
