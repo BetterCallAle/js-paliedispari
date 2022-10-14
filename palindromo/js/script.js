@@ -66,18 +66,14 @@ function extractElements(elementName){
 //output
 function output(elementWithTheInnerHTML){
     const userWord = input.value;
-    console.log(userWord);
-
-    //ask the user for a word
-    
-    console.log(userWord);
+    const userWordLower = userWord.toLowerCase()
     
     //reverse the word
-    const userWordReversed = reverseTheWord(userWord)
+    const userWordReversed = reverseTheWord(userWordLower)
     console.log(userWordReversed);
     
     //check if the userWord and arrayToString are the same
-    const theWordAreEqual = areTheWordEqual(userWord, userWordReversed)
+    const theWordAreEqual = areTheWordEqual(userWordLower, userWordReversed)
     console.log(theWordAreEqual);
 
     //output
