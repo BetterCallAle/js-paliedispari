@@ -20,6 +20,13 @@ section{
     text-align: center;
 }
 
+/* HEADER */
+header{
+    text-align: center;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
 /* FORM */
 label{
     display: block;
