@@ -1,21 +1,43 @@
-//ask the user for a word
-const userWord = prompt("Inserisci una parola");
-console.log(userWord);
+//extracting some DOM elements
+const input = extractElements("user-word")
+const submitBtn = extractElements("submit")
+const cancelBtn = extractElements("cancel")
 
-//reverse the word
-const userWordReversed = reverseTheWord(userWord)
 
-//check if the userWord and arrayToString are the same
-const theWordAreEqual = areTheWordEqual(userWord, userWordReversed)
+//on click export input value and write an output
+submitBtn.addEventListener("click", function(){
+    const userWord = input.value;
+    console.log(userWord);
 
-console.log(theWordAreEqual);
+    //ask the user for a word
+    
+    console.log(userWord);
+    
+    //reverse the word
+    const userWordReversed = reverseTheWord(userWord)
+    console.log(userWordReversed);
+    
+    //check if the userWord and arrayToString are the same
+    const theWordAreEqual = areTheWordEqual(userWord, userWordReversed)
+    console.log(theWordAreEqual);
 
-//output
-if(theWordAreEqual){
-    alert("la parola è palindroma")
-} else {
-    alert("la parola non è palindroma")
-}
+    //output
+    const outputContainer = extractElements("output-container")
+
+    let outputMessage = ""
+
+    if(theWordAreEqual){
+        outputMessage = `la parola ${userWord} che al contrario è ${userWordReversed}. È palindroma.`
+    } else {
+        outputMessage = `la parola ${userWord} che al contrario è ${userWordReversed}. Non è palindroma.`
+    }
+
+    outputContainer.innerHTML = `<h2> ${outputMessage} <h2>`
+
+    input.value = ""
+})
+
+
 
 
 
@@ -27,7 +49,6 @@ function reverseTheWord(word) {
 
     //transform the word in array
     const userWordToArray = Array.from(word);
-    console.log(userWordToArray);
 
     //reverse the array
     const emptyArray = [];
@@ -38,7 +59,6 @@ function reverseTheWord(word) {
 
     //transform the reversed array into a string
     const arrayToString = emptyArray.join('');
-    console.log(arrayToString);
 
     return arrayToString
 }
@@ -53,4 +73,10 @@ function areTheWordEqual(word1, word2) {
     }
 
     return equalWord
+}
+
+//extract elements
+function extractElements(elementName){
+    const element = document.getElementById(elementName)
+    return element
 }
