@@ -2,20 +2,11 @@
 const userWord = prompt("Inserisci una parola");
 console.log(userWord);
 
-//transform the word in array
-const userWordToArray = Array.from(userWord);
-console.log(userWordToArray);
-
-//reverse the array
-const arrayReversed = reverseTheArray(userWord)
-console.log(arrayReversed);
-
-//transform the reversed array into a string
-const arrayToString = arrayReversed.join('');
-console.log(arrayToString);
+//reverse the word
+const userWordReversed = reverseTheWord(userWord)
 
 //check if the userWord and arrayToString are the same
-const theWordAreEqual = areTheWordEqual(userWord, arrayToString)
+const theWordAreEqual = areTheWordEqual(userWord, userWordReversed)
 
 console.log(theWordAreEqual);
 
@@ -31,16 +22,25 @@ if(theWordAreEqual){
 
 //Functions
 
-//reverse the array
-function reverseTheArray(array) {
+//reverse the word
+function reverseTheWord(word) {
 
+    //transform the word in array
+    const userWordToArray = Array.from(word);
+    console.log(userWordToArray);
+
+    //reverse the array
     const emptyArray = [];
 
-    for(i = array.length -1; i >= 0; i--){
-        emptyArray.push(array[i])
+    for(i = userWordToArray.length -1; i >= 0; i--){
+        emptyArray.push(userWordToArray[i])
     }
 
-    return emptyArray
+    //transform the reversed array into a string
+    const arrayToString = emptyArray.join('');
+    console.log(arrayToString);
+
+    return arrayToString
 }
 
 //check if the userWord and arrayToString are the same
