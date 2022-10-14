@@ -18,7 +18,7 @@ input.addEventListener("keypress", function (e) {
 //cancel button
 cancelBtn.addEventListener("click", function() {
     input.value = ""
-    
+    outputContainer.classList.add("hidden")
 })
 
 
@@ -82,12 +82,14 @@ function output(elementWithTheInnerHTML){
     let outputMessage = ""
 
     if(theWordAreEqual){
-        outputMessage = `la parola ${userWord} che al contrario è ${userWordReversed}. È palindroma.`
+        outputMessage = `La parola ${userWord} che al contrario è ${userWordReversed}. È palindroma.`
     } else {
-        outputMessage = `la parola ${userWord} che al contrario è ${userWordReversed}. Non è palindroma.`
+        outputMessage = `La parola ${userWord} che al contrario è ${userWordReversed}. Non è palindroma.`
     }
 
     elementWithTheInnerHTML.innerHTML = `<h2> ${outputMessage} <h2>`
+
+    outputContainer.classList.remove("hidden")
 
     input.value = ""
 }

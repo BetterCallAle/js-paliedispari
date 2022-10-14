@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COMMON */
+body{
+    background-color: rgb(50, 50, 50);
+    color: white;
+}
+
+.container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+section{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* FORM */
+label{
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+input{
+    display: block;
+    color: white;
+    width: 100%;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+input:focus{
+    outline: none;
+}
+
+button{
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    padding: 1rem;
+    margin-left: .5rem;
+    transition: all 125ms linear;
+}
+
+button:hover{
+    background-color: whitesmoke;
+    color: black;
+    border: 1px solid red;
+}
+
+/* OUTPUT */
+.hidden{
+    display: none;
+}
+
+h2{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
