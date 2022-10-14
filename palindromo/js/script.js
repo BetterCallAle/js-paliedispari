@@ -10,7 +10,21 @@ console.log(userWordToArray);
 const arrayReversed = reverseTheArray(userWord)
 console.log(arrayReversed);
 
+//transform the reversed array into a string
+const arrayToString = arrayReversed.join('');
+console.log(arrayToString);
 
+//check if the userWord and arrayToString are the same
+const theWordAreEqual = areTheWordEqual(userWord, arrayToString)
+
+console.log(theWordAreEqual);
+
+//output
+if(theWordAreEqual){
+    alert("la parola è palindroma")
+} else {
+    alert("la parola non è palindroma")
+}
 
 
 
@@ -27,4 +41,16 @@ function reverseTheArray(array) {
     }
 
     return emptyArray
+}
+
+//check if the userWord and arrayToString are the same
+function areTheWordEqual(word1, word2) {
+    
+    let equalWord = false
+
+    if (word1 === word2) {
+       equalWord = true
+    }
+
+    return equalWord
 }
